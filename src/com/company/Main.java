@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
 
@@ -42,6 +43,20 @@ public class Main {
                 .collect(Collectors.toList());
         System.out.println(listaIdOrdenada);
 
+        //Contar cantidad de elementos en una lista
+
+        long cantidad = lista.stream()
+                .count();
+        System.out.println("Cantidad: " + cantidad);
+
+        /**
+         * reduce() es equivalente a recorrer una lista e ir acumulando
+         * valores en una variable usando +=
+         * primer parametro: valor inicial del acumulador
+         *
+         */
+        int sum = listaIds.stream().reduce(0, (x, y) -> x + y);
+        System.out.println("Suma de los IDs: " + sum);
 
 
 
