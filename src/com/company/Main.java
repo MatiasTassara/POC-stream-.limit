@@ -18,12 +18,29 @@ public class Main {
 
         //System.out.println(lista);
 
+        /**
+         * Ordenar la lista de eventos y mostrar los 5 primeros alfabeticamente
+         */
         List<Evento> listaOrdenada = lista.stream()
                 .sorted(Comparator.comparing(Evento::getName))
                 .limit(5)
                 .collect(Collectors.toList());
         System.out.println(listaOrdenada);
 
+        /**
+         * Extraer los IDs de los eventos a una lista
+         */
+        List<Integer> listaIds = lista.stream()
+                .map(Evento::getId)
+                .collect(Collectors.toList());
+        System.out.println(listaIds);
+
+        //extraer ids y ordenarlos en una lista
+        List<Integer> listaIdOrdenada = lista.stream()
+                .map(Evento::getId)
+                .sorted(Comparator.comparing(Integer::byteValue))
+                .collect(Collectors.toList());
+        System.out.println(listaIdOrdenada);
 
 
 
